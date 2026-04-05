@@ -117,6 +117,18 @@ onMounted(() => {
     lenis.destroy();
   });
 });
+
+const skills = [
+  { nome: "HTML5 / CSS3", nivel: 90 },
+  { nome: "Tailwind / Bootstrap", nivel: 85 },
+  { nome: "JavaScript", nivel: 85 },
+  { nome: "React/Vue", nivel: 70 },
+  { nome: "PHP", nivel: 60 },
+  { nome: "Python", nivel: 70 },
+  { nome: "MySQL / SQL", nivel: 75 },
+  { nome: "UI/UX", nivel: 85 },
+  { nome: "IoT / Redes", nivel: 65 }
+];
 </script>
 
 <template>
@@ -129,7 +141,7 @@ onMounted(() => {
     <div class="h-120"></div>
     <section id="second" class="bg-black w-full min-h-screen max-h-screen relative z-20">
 
-      <FlashlightEffect class="min-h-screen" :radius="500" :intensity="0.15" light-color="255, 245, 200"> 
+      <FlashlightEffect class="min-h-screen" :radius="500" :intensity="0.15" light-color="255, 245, 200">
         <div class="flex">
           <div class="h-auto ml-5 pt-10">
             <h1 class="text-white text-4xl font-bold border-white border-l-8 pl-5">Caso 1703</h1>
@@ -147,7 +159,7 @@ onMounted(() => {
           <div class="card relative ml-10 h-4/5 w-200 mr-20 overflow-hidden" @mousemove="handleMove"
             @mouseleave="handleLeave">
             <img src="../assets/images/S1.png" class="w-full h-full object-cover select-none pointer-events-none" />
-            <img src="../assets/images/S2.jpeg"
+            <img src="../assets/images/S2.png"
               class="absolute inset-0 w-full h-full object-cover pointer-events-none reveal" :style="maskStyle" />
           </div>
           <div class="flex flex-col h-4/5 mr-50 w-screen">
@@ -158,6 +170,18 @@ onMounted(() => {
               Informação na FATEC São Caetano do Sul, em constante busca por
               novos aprendizados e oportunidades na área de tecnologia.
             </h2>
+            <div class="w-full max-w-md text-white mt-10">
+              <h2 class="text-2xl font-bold mb-6">Skils</h2>
+
+              <div v-for="skill in skills" :key="skill.nome" class="mb-4">
+                <div class="flex items-center mb-1">
+                  <span class="text-sm w-50">{{ skill.nome }}</span>
+                  <div class="w-full bg-neutral-700 h-2 overflow-hidden">
+                    <div class="h-2 bg-white transition-all duration-500" :style="{ width: skill.nivel + '%' }"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
