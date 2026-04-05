@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@font-face {
+  font-family: 'FontPr';
+  src: url('fonte.ttf') format('truetype');
+}
+
+.html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
