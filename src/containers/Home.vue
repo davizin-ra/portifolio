@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref, computed } from "vue";
 import Lenis from "@studio-freight/lenis";
 import { useNow, useDateFormat } from '@vueuse/core'
 import FlashlightEffect from "../components/flash.vue";
-import { Github, Linkedin } from 'lucide-vue-next'
+import { Github, Linkedin, ArrowUpFromLine } from 'lucide-vue-next'
 
 const formatted = useDateFormat(useNow(), 'DD/MM/YYYY')
 
@@ -121,14 +121,15 @@ onMounted(() => {
 const skills = [
   { nome: "HTML5 / CSS3", nivel: 90 },
   { nome: "Tailwind / Bootstrap", nivel: 85 },
-  { nome: "JavaScript", nivel: 85 },
-  { nome: "React/Vue", nivel: 70 },
-  { nome: "PHP", nivel: 60 },
+  { nome: "JavaScript", nivel: 65 },
+  { nome: "React/Vue", nivel: 60 },
+  { nome: "PHP", nivel: 50 },
   { nome: "Python", nivel: 70 },
   { nome: "MySQL / SQL", nivel: 75 },
   { nome: "UI/UX", nivel: 85 },
   { nome: "IoT / Redes", nivel: 65 }
 ];
+
 </script>
 
 <template>
@@ -140,7 +141,6 @@ const skills = [
 
     <div class="h-120"></div>
     <section id="second" class="bg-black w-full min-h-screen max-h-screen relative z-20">
-
       <FlashlightEffect class="min-h-screen" :radius="500" :intensity="0.15" light-color="255, 245, 200">
         <div class="flex">
           <div class="h-auto ml-5 pt-10">
@@ -170,16 +170,24 @@ const skills = [
               Informação na FATEC São Caetano do Sul, em constante busca por
               novos aprendizados e oportunidades na área de tecnologia.
             </h2>
-            <div class="w-full max-w-md text-white mt-10">
-              <h2 class="text-2xl font-bold mb-6">Skils</h2>
+            <div class="flex">
+              <div class="w-full max-w-md text-white mt-10">
+                <h2 class="text-2xl font-bold mb-6">Skils</h2>
 
-              <div v-for="skill in skills" :key="skill.nome" class="mb-4">
-                <div class="flex items-center mb-1">
-                  <span class="text-sm w-50">{{ skill.nome }}</span>
-                  <div class="w-full bg-neutral-700 h-2 overflow-hidden">
-                    <div class="h-2 bg-white transition-all duration-500" :style="{ width: skill.nivel + '%' }"></div>
+                <div v-for="skill in skills" :key="skill.nome" class="mb-4">
+                  <div class="flex items-center mb-1">
+                    <span class="text-sm w-50">{{ skill.nome }}</span>
+                    <div class="w-full bg-neutral-700 h-2 overflow-hidden">
+                      <div class="h-2 bg-white transition-all duration-500" :style="{ width: skill.nivel + '%' }"></div>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <div class="mt-15 ml-25">
+                <router-link to="/about">
+                  <h2 class="text-white text-3xl underline font-bold hover:scale-105 transition-all">Relatório Completo
+                    ></h2>
+                </router-link>
               </div>
             </div>
           </div>
