@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref, computed } from "vue";
 import Lenis from "@studio-freight/lenis";
 import { useNow, useDateFormat } from '@vueuse/core'
 import FlashlightEffect from "../components/flash.vue";
-import { Github, Linkedin, ArrowUpFromLine } from 'lucide-vue-next'
+import { Github, Linkedin } from 'lucide-vue-next'
 
 const formatted = useDateFormat(useNow(), 'DD/MM/YYYY')
 
