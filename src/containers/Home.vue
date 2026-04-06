@@ -185,7 +185,7 @@ const skills = [
               </div>
               <div class="mt-15 ml-25">
                 <router-link to="/about">
-                  <h2 class="text-white text-3xl underline font-bold">Relatório Completo
+                  <h2 class="text-white text-3xl underline font-bold hover:text-gray-300">Relatório Completo
                     ></h2>
                 </router-link>
               </div>
