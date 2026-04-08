@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, computed } from "vue";
+import { onMounted, ref, computed } from "vue";
 import { useNow, useDateFormat } from '@vueuse/core'
 import FlashlightEffect from "../components/flash.vue";
 import { Github, Linkedin, Folder, Trash2, Users, FileText } from 'lucide-vue-next'
