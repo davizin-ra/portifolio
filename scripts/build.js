@@ -2,7 +2,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-console.log('🚀 Iniciando build de produção...');
+console.log('Iniciando build de produção...');
 
 try {
   if (fs.existsSync('dist')) {
@@ -16,6 +16,6 @@ try {
   console.log('Build concluído com sucesso!');
   
 } catch (error) {
-  console.error('❌ Erro durante o build:', error.message);
+  console.error('Erro durante o build:', error.message);
   process.exit(1);
 }

@@ -2,7 +2,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-console.log('🚀 Iniciando processo de deploy...');
+console.log('Iniciando processo de deploy...');
 
 try {
   const branch = execSync('git branch --show-current', { encoding: 'utf8' }).trim();
@@ -11,7 +11,6 @@ try {
   console.log('Buildando projeto...');
   execSync('npm run build', { stdio: 'inherit' });
 
-  // Verifica se o build foi gerado
   if (!fs.existsSync('dist')) {
     throw new Error('Build não foi gerado corretamente');
   }
