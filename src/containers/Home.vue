@@ -2,14 +2,15 @@
 import { onMounted, onUnmounted, ref, computed } from "vue";
 import { useNow, useDateFormat } from '@vueuse/core'
 import FlashlightEffect from "../components/flash.vue";
-import { Github, Linkedin } from 'lucide-vue-next'
+import { Github, Linkedin, Folder, Trash2, Users, FileText } from 'lucide-vue-next'
 import { useLenisScroll } from "../composables/useLenisScroll";
+import Pasta from "../components/UI/pastas.vue";
 
 useLenisScroll();
 
 const formatted = useDateFormat(useNow(), 'DD/MM/YYYY')
 
-const currentSection = ref<'home' | ' ' | 'contato'>('home')
+const currentSection = ref<'home' | 'desktop' | 'contato'>('home')
 
 const mouseX = ref(0);
 const mouseY = ref(0);
@@ -101,14 +102,12 @@ const skills = [
 
             <div class="flex h-[calc(100vh-200px)] w-screen items-center">
 
-              <div class="card relative ml-10 h-4/5 w-200 mr-20 overflow-hidden"
-                @mousemove="handleMove"
+              <div class="card relative ml-10 h-4/5 w-200 mr-20 overflow-hidden" @mousemove="handleMove"
                 @mouseleave="handleLeave">
 
                 <img src="../assets/images/S1.png" class="w-full h-full object-cover pointer-events-none" />
                 <img src="../assets/images/S2.png"
-                  class="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                  :style="maskStyle" />
+                  class="absolute inset-0 w-full h-full object-cover pointer-events-none" :style="maskStyle" />
               </div>
 
               <div class="flex flex-col h-4/5 mr-50 w-screen">
@@ -134,11 +133,9 @@ const skills = [
                   </div>
 
                   <div class="mt-15 ml-25">
-                    <h2 
-                      class="text-white text-3xl underline font-bold hover:text-gray-300 cursor-pointer"
-                      @click="currentSection = 'relatorio'"
-                    >
-                      Relatório Completo >
+                    <h2 class="text-white text-3xl underline font-bold hover:text-gray-300 cursor-pointer"
+                      @click="currentSection = 'desktop'">
+                      Abrir Desktop >
                     </h2>
                   </div>
                 </div>
@@ -147,48 +144,49 @@ const skills = [
             </div>
           </div>
 
-          <!-- RELATÓRIO -->
-          <div v-else key="relatorio" class="min-h-screen text-white p-10">
+          <div v-else key="desktop" class="min-h-screen text-white p-10">
 
             <h1 class="text-5xl font-bold border-l-8 pl-5 mb-6">
-              Relatório Completo
+              Desktop Kali 1.0.9a - DaviDev
             </h1>
+            <div
+              class="bg-[url('../assets/images/wpp.png')] bg-cover bg-center h-[70vh] w-auto mr-50 ml-50 mt-10 border-2 border-white pl-10 pt-10">
 
-            <p class="text-xl max-w-3xl leading-relaxed">
-              Aqui você pode detalhar projetos, experiências, stack, etc.
-            </p>
+              <Pasta :icon="Trash2" @click="currentSection = 'home'">Voltar</Pasta>
+              <Pasta :icon="Folder" :filled="true">Educação</Pasta>
+              <Pasta :icon="Folder" :filled="true">Experiência</Pasta>
+              <Pasta :icon="Folder" :filled="true">Projetos</Pasta>
+              <Pasta :icon="FileText">Curriculo.pdf</Pasta>
+              <Pasta :icon="Users">Contatos</Pasta>
 
-            <button
-              class="mt-10 text-2xl underline hover:text-gray-300"
-              @click="currentSection = 'home'"
-            >
+            </div>
+            <!-- <button class="mt-10 text-2xl underline hover:text-gray-300" @click="currentSection = 'home'">
               ← Voltar
-            </button>
+            </button> -->
 
           </div>
 
         </transition>
+      </FlashlightEffect>
 
-        <!-- 🔥 CONTATO FIXO (SEMPRE VISÍVEL) -->
-        <div class="fixed bottom-5 right-10 z-50">
-          <div class="flex gap-4 items-center">
+      <div class="fixed bottom-5 right-10 z-50">
+        <div class="flex gap-4 items-center">
 
-            <span class="text-white">
-              daviramos1703@gmail.com
-            </span>
-
+          <span class="text-white">
+            daviramos1703@gmail.com
+          </span>
+          <div>
             <a href="https://github.com/davizin-ra" target="_blank">
               <Github class="w-6 h-6 text-white hover:text-gray-300" />
             </a>
-
-            <a href="https://www.linkedin.com/in/daviratt/" target="_blank">
-              <Linkedin class="w-6 h-6 text-white hover:text-gray-300" />
-            </a>
-
           </div>
-        </div>
 
-      </FlashlightEffect>
+          <a href="https://www.linkedin.com/in/daviratt/" target="_blank">
+            <Linkedin class="w-6 h-6 text-white hover:text-gray-300" />
+          </a>
+
+        </div>
+      </div>
     </section>
 
   </div>
@@ -199,7 +197,6 @@ const skills = [
   overflow-x: hidden;
 }
 
-/* 🔥 FADE INSANO */
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
