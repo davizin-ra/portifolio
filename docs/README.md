@@ -21,7 +21,6 @@ portifolio/
 │   ├── router/            # Configuração de rotas
 │   └── styles/            # Arquivos CSS/SCSS
 ├── .github/               # Configurações do GitHub
-└── dist/                  # Build de produção
 ```
 
 ## Tecnologias Utilizadas
