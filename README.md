@@ -1,4 +1,4 @@
-# Portfólio do davizin - [Link](https://portifolio-nu-nine-96.vercel.app)
+# Portfólio do davizin - [[Link](https://portifolio-nu-nine-96.vercel.app)](https://davsra.vercel.app)
 
 ## 📄 Licença
 
