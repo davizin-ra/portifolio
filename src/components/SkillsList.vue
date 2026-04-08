@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { skills } from '../constants/skills.ts'
+import { Skills } from '../constants/skills.ts'
 
 interface Props {
-  skills: String[]
+  skills: Skills[]
 }
 
 defineProps<Props>()
