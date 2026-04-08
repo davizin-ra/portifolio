@@ -2,7 +2,7 @@
 import { skills } from '../constants/skills.ts'
 
 interface Props {
-  skills: Skills[]
+  skills: typeof skills
 }
 
 defineProps<Props>()
